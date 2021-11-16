@@ -9,6 +9,14 @@ describe('test suite',function(){
         //multichecking in one step
         cy.get('input[type="checkbox"]').check(['option2', 'option3'])
         //drodownlist
-        cy.get('#dropdown-class-example').select('option2').should('have.value', 'option2')
+        cy.get('#dropdown-class-example').select('option2').should('have.value','option2')
+        // dynamic ddl
+        cy.get('#autocomplete').type('ind')
+        cy.get('.ui-menu-item').each(($el,index, $list)=>{
+            if($el.text()==='India'){
+                $el.click()
+            }
+        })
+
     })
 })
