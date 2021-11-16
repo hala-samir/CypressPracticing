@@ -10,5 +10,7 @@ describe('test suite',function(){
         cy.on('window:confirm',(str)=>{
             expect(str).to.equal('Hello , Are you sure you want to confirm?')
         })
+        //open window in the same tab
+        cy.get('#opentab').invoke('removeAttr','target').click()
     })
 })
