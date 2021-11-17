@@ -13,9 +13,9 @@ describe('test suite',function(){
         //open window in the same tab
         cy.get('#opentab').invoke('removeAttr','target').click()
         //assert the current url
-        cy.url('include', 'https://www.rahulshettyacademy.com/')
+        cy.url().should('include', 'rahulshettyacademy')
         //go back 
         cy.go('back')
-        cy.url('include','https://rahulshettyacademy.com/AutomationPractice/')
+        cy.url().should('include','AutomationPractice')
     })
 })
