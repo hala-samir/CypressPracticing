@@ -1,5 +1,6 @@
 {
   "name": "Bob",
   "email": "hello@cypress.io",
-  "gender": "Female"
+  "gender": "Female",
+  "productName":["Nokia Edge","Blackberry","iphone X"]
 }

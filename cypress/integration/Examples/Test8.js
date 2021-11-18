@@ -19,7 +19,9 @@ describe('test suite', function () {
         cy.get("input[name='name']").eq(0).should('have.value',name)
         cy.get('#inlineRadio3').should('be.disabled')
         cy.get('.nav-link').eq(1).click()
-        cy.selectProduct('Blackberry')
-
+        //read data array from fixure file
+        testData.productName.forEach(function(product){
+            cy.selectProduct(product)
+        })
     })
 })
