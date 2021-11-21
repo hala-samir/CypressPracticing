@@ -1,11 +1,12 @@
 /// <reference types="Cypress" />
 import HomePage from "./PageObject/HomePage"
 import ProductsPage from "./PageObject/ProductsPage"
+import ShopPage from "./PageObject/ShopPage"
+import PurchasePage from "./PurchasePage"
 describe('test suite', function () {
     const homePageObj = new HomePage()
     let testData
     beforeEach(function () {
-
         cy.fixture('data').then(function (data) {
             testData = data
             return testData
@@ -14,6 +15,8 @@ describe('test suite', function () {
     it('read data from fixure file', () => {
         const homePageObj = new HomePage()
         const productsPageObj = new ProductsPage()
+        const shopPageObj = new ShopPage()
+        const purchasePageObj = new PurchasePage()
         cy.visit('https://rahulshettyacademy.com/angularpractice/')
         const name = testData.name
         homePageObj.nameField().eq(0).type(name)
@@ -29,5 +32,17 @@ describe('test suite', function () {
         testData.productName.forEach(function (product) {
             cy.selectProduct(product)
         })
+        productsPageObj.clickCheckout()
+        shopPageObj.clickCheckoutFromShop();
+        purchasePageObj.fillCountryField(testData.countryName)
+        Cypress.config('defaultCommandTimeout',50000)
+        purchasePageObj.clickCountrySuggestions()
+        purchasePageObj.checkConditions()
+        purchasePageObj.clickPuchase()
+        purchasePageObj.successMsg().then(function(element){
+            const actualText = element.text()
+            expect(actualText.includes("Success")).to.be.true
+        })
+
     })
 })

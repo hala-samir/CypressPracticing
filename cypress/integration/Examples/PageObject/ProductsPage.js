@@ -1,6 +1,6 @@
 class ProductsPage{
-    productsTitles(){
-        return cy.get('h4.card-title')
+clickCheckout(){
+        return cy.get('.nav-link.btn-primary').click()
     }
 }
 export default ProductsPage
