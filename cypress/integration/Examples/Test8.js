@@ -17,6 +17,7 @@ describe('test suite', function () {
         const productsPageObj = new ProductsPage()
         const shopPageObj = new ShopPage()
         const purchasePageObj = new PurchasePage()
+        var sum = 0
         cy.visit('https://rahulshettyacademy.com/angularpractice/')
         const name = testData.name
         homePageObj.nameField().eq(0).type(name)
@@ -33,7 +34,21 @@ describe('test suite', function () {
             cy.selectProduct(product)
         })
         productsPageObj.clickCheckout()
-        shopPageObj.clickCheckoutFromShop();
+        //dynamic sum calculation in checkout page
+        //loop on the items table to grab prices
+        cy.get('tr td:nth-child(4) strong').each(($el,index,$list)=>{
+            const actualText= $el.text()   
+            var result = actualText.split(" ")
+            result = result[1].trim()
+            sum= Number(sum)+Number(result)
+        }).then(function(){cy.log(sum)})
+        //assert the total price
+        cy.get('h3 strong').then(function(element){
+            var total = Number(element.text().split(" ")[1])
+            expect(sum).to.equal(total)
+        })
+        //click checkout
+        shopPageObj.clickCheckoutFromShop()
         purchasePageObj.fillCountryField(testData.countryName)
         Cypress.config('defaultCommandTimeout',50000)
         purchasePageObj.clickCountrySuggestions()
