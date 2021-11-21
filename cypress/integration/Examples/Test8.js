@@ -42,7 +42,7 @@ describe('test suite', function () {
             result = result[1].trim()
             sum= Number(sum)+Number(result)
         }).then(function(){cy.log(sum)})
-        //assert the total price
+        //assert the total price against the calculated
         cy.get('h3 strong').then(function(element){
             var total = Number(element.text().split(" ")[1])
             expect(sum).to.equal(total)
@@ -58,6 +58,5 @@ describe('test suite', function () {
             const actualText = element.text()
             expect(actualText.includes("Success")).to.be.true
         })
-
     })
 })
