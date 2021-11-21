@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 describe('test suite',function(){
     it('checkout items', () => {
-        cy.visit("https://rahulshettyacademy.com/seleniumPractise/#/")
+        cy.visit(Cypress.env('url3'))
         cy.get('.search-form').type('ca')
         //find element and add it to cart
         cy.get('.products').as('productLocator')

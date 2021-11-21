@@ -18,7 +18,7 @@ describe('test suite', function () {
         const shopPageObj = new ShopPage()
         const purchasePageObj = new PurchasePage()
         var sum = 0
-        cy.visit('https://rahulshettyacademy.com/angularpractice/')
+        cy.visit(Cypress.env('url'))
         const name = testData.name
         homePageObj.nameField().eq(0).type(name)
         //validate attribute

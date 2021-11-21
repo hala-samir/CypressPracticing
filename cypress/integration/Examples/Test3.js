@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 describe('test suite',function(){
     it('checkout items', () => {
-        cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
+        cy.visit(Cypress.env('url2'))
         //checkboxes
         cy.get('#checkBoxOption1').as('checkbox')
         cy.get('@checkbox').check().should('be.checked').and('have.value','option1')
