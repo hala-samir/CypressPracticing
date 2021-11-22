@@ -1,9 +1,12 @@
 {
-    "defaultCommandTimeout":8000,
-    "env":
-    {
-        "url":"https://rahulshettyacademy.com/angularpractice/",
-        "url2":"https://rahulshettyacademy.com/AutomationPractice/",
-        "url3":"https://rahulshettyacademy.com/seleniumPractise/#/"
-    }
+  "defaultCommandTimeout": 8000,
+  "env": {
+    "url": "https://rahulshettyacademy.com/angularpractice/",
+    "url2": "https://rahulshettyacademy.com/AutomationPractice/",
+    "url3": "https://rahulshettyacademy.com/seleniumPractise/#/"
+  },
+  "projectId": "r1rs8e",
+  
+    "reporter": "mochawesome"
+  
 }
