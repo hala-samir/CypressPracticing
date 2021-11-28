@@ -5,8 +5,11 @@
     "url2": "https://rahulshettyacademy.com/AutomationPractice/",
     "url3": "https://rahulshettyacademy.com/seleniumPractise/#/"
   },
-  "projectId": "r1rs8e",
-  
-    "reporter": "mochawesome"
-  
+  "projectId": "r1rs8e", 
+  "reporter": "mochawesome" ,
+  "scripts":{
+    "recordDashboardTest" : "npx run test -- --record --key 6f2855d1-3af2-4e67-999f-c5efca8a51e2 --reporter mochawesome",
+    "run tests" : "npx cypress run"
+  },
+  "testFiles": "**/*.feature"
 }
