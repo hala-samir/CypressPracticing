@@ -5,11 +5,14 @@
 npm install cypress --save-dev
 #### To run specific spec file headless: 
 > npx cypress run --spec cypress/integration/Examples/SpecFileName.js
+##### To run tests with mochawesome reports:
+> npx cypress run --spec filePath --reporter mochawesome
 # What are the Test types provided by Cypress?
 #### End-to-end
 #### Component
 #### API
 ##### For more inforamtion visit: https://docs.cypress.io/
+
 
 
 
