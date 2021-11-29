@@ -135,5 +135,8 @@ cypress/mochawesome-report
 .css.map
 .js
 .txt
+#cucumber reports
+cypress/cucumber-json
+/reports/cucumber-html-report.html
 
 
